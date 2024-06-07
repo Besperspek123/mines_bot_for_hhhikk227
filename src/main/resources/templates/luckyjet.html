@@ -1,0 +1,45 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/LuckyJet/style.css">
+    <title>LUCKYJET</title>
+  <style type="text/css" id="operaUserStyle"></style></head>
+  
+  <body>
+    <div class="background">
+      <div class="container">
+        <img class="pers-animate" src="https://i.postimg.cc/NF4FLHb6/pers.gif" alt="">
+  
+        <div id="error-notification" class="error-notification deactivate" style="transform: translateY(-99px);">
+          <div class="error-background"></div>
+          <img class="icon-error" src="../static/LuckyJet/resource/error-svgrepo-com.svg" alt="error">
+          <p id="text-error" class="text-error">Wait for the time to expire</p>
+          <div id="error-exit" class="error-exit">
+            <img src="../static/LuckyJet/resource/close-svgrepo-com.svg" alt="exit">
+          </div>
+          <div id="error-progress" class="error-progress" style="animation: auto ease 0s 1 normal none running none;"></div>
+        </div>
+  
+        <div class="top-content">
+          <img draggable="false" src="../static/LuckyJet/resource/LuckyJet.png" alt="logo" class="logo-game">
+          <p class="name-bot">@Mines913Bot</p>
+        </div>
+  
+        <div class="print-signal" id="print-signal">3.94x</div>
+        <div class="stop-signal-time deactivate" id="stop-signal-time-block">
+          <p class="stop-timer" id="stop-timer">1<span> seconds</span></p>
+          <div class="stop-progress" id="stop-progress" style="animation: none;"></div>
+        </div>
+  
+        <div class="button-game">
+          <button class="get-signal" id="get-signal">GET SIGNAL</button>
+          <button class="get-signal-two deactivate" id="get-signal-two" style="z-index: -1;">GET SIGNAL</button>
+          <a th:href="@{${gameUrl}}" class="game-here">GAME HERE</a>
+        </div>
+      </div>
+    </div>
+  
+    <script src="../static/LuckyJet/main.js"></script>
+  
+  
+  </body></html>

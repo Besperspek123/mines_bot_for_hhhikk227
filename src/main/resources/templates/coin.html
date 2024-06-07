@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <title>Flip A Coin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&amp;display=swap" rel="stylesheet">
+    <link href="../static/Coin/style.css" rel="stylesheet">
+    <style type="text/css" id="operaUserStyle"></style>
+</head>
+
+<body><noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="container">
+            <div class="result" id="result"></div>
+            <div class="coin">
+                <!-- Обеспечьте наличие элементов heads и tails -->
+                <div class="heads"><img src="../static/Coin/resource/euro.png" alt="Орел"></div>
+                <div class="tails"><img src="../static/Coin/resource/dollar.png" alt="Решка"></div>
+            </div>
+            <button>SPIN</button>
+        </div>
+    </div>
+</body>
+<script>
+    const coinElement = document.querySelector('.coin');
+    const buttonElement = document.querySelector('button');
+    const resultElement = document.getElementById('result');
+
+    function startCoinAnimation(isHeads) {
+        // Сброс текущей анимации для гарантии повторного воспроизведения
+        coinElement.style.animation = 'none';
+
+        setTimeout(() => {
+            const animationName = isHeads ? 'spin-to-heads' : 'spin-to-tails';
+            coinElement.style.animation = `3s ease 0s 1 normal forwards ${animationName}`;
+
+            // Отключаем кнопку на время анимации
+            buttonElement.disabled = true;
+
+            // Обработчик окончания анимации
+            coinElement.addEventListener('animationend', () => {
+                // Отображение результата после окончания анимации
+                resultElement.textContent = isHeads ? 'ОРЕЛ | HEAD' : 'РЕШКО | TAIL';
+                // Включение кнопки после завершения анимации
+                buttonElement.disabled = false;
+            }, {once: true});
+        }, 10);
+    }
+
+    buttonElement.addEventListener('click', () => {
+        const isHeads = Math.random() < 0.5;
+        startCoinAnimation(isHeads);
+    });
+</script>
+</html>

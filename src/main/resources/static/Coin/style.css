@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: #0a0f1e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #0a0f1e;
+    padding: 50px;
+    box-shadow: 15px 30px 35px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    width: 400px;
+    height: auto;
+    min-height: 500px;
+}
+
+.result {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 50px;
+}
+
+.coin {
+    height: 300px;
+    width: 300px;
+    margin: 60px auto 20px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.coin img {
+    width: 100%;
+}
+
+.heads, .tails {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.tails {
+    transform: rotateX(180deg);
+}
+
+.heads {
+    transform: rotateX(0deg); /* Убедитесь, что это соответствует ожиданиям */
+}
+
+@keyframes spin-heads {
+    from { transform: rotateX(0deg); }
+    to { transform: rotateX(360deg); }
+}
+
+@keyframes spin-tails {
+    from { transform: rotateX(0deg); }
+    to { transform: rotateX(-360deg); }
+}
+
+@keyframes spin-to-heads {
+    from { transform: rotateX(0deg); }
+    to { transform: rotateX(3600deg); } /* 10 оборотов */
+}
+
+@keyframes spin-to-tails {
+    from { transform: rotateX(180deg); }
+    to { transform: rotateX(3780deg); } /* 10 оборотов плюс 180 градусов */
+}
+
+button {
+    width: 100%;
+    padding: 15px 0;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 18px;
+    background-image: linear-gradient(to right, #ff7e00, #ff7e00 80%, #ffffff);
+    background-size: 200% 200%;
+    position: relative; /* Для поддержки анимации */
+    overflow: hidden; /* Обеспечивает, что анимация не выходит за пределы кнопки */
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+button.animate:before, button.animate:after {
+    content: '';
+    position: absolute;
+    top: -75%;
+    left: -75%;
+    width: 250%;
+    height: 250%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+button.animate:before {
+    display: block;
+    animation: ripple 1s ease-out forwards;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.7) 10%, transparent 10.01%);
+}
+
+button.animate:after {
+    display: block;
+    animation: ripple 1s ease-out forwards;
+    animation-delay: 0.5s;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.5) 10%, transparent 10.01%);
+}
+
+@keyframes ripple {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(4);
+    }
+}
+
+#flip-button:disabled {
+    background-color: #e1e0ee;
+}

@@ -1,0 +1,39 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/mines/style.css">
+    <title>MINES VERXUSH</title>
+  <style type="text/css" id="operaUserStyle"></style></head>
+  
+  <body>
+      <div class="container">
+        <div class="decor">
+          <img class="one-win" src="../static/mines/resource/1win.svg" alt="1win">
+          <img src="../static/mines/resource/2win.png" alt="1win" class="two-win">
+        </div>
+        <div class="text-top">
+          <h1 class="text-title">MINES</h1>
+          <p class="text-subtitle">@Mines913Bot</p>
+        </div>
+        <div class="game-screen">
+          <div class="screen-active">
+            <img draggable="false" id="screenStart" class="screenStart" src="../static/mines/resource/start.svg" alt="start">
+            <img draggable="false" src="../static/mines/resource/loading.gif" alt="loading" id="loading" class="loading deactive">
+            <!--Сюда картинки надо вставить-->
+            <img draggable="false" src="" id="img-signal" alt="signal" class="img-signal deactive">
+          </div>
+        </div>
+        <div class="game-button">
+          <button id="get-signal" class="get-signal">Get Signal</button>
+            <a th:href="@{${gameUrl}}" class="game-here">GAME HERE</a>
+        </div>
+      </div>
+    <div class="background"></div>
+  
+    <script src="../static/mines/script.js"></script>
+  
+  
+  </body></html>
