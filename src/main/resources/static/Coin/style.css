@@ -7,34 +7,59 @@
 
 body {
     height: 100vh;
-    background: #0a0f1e;
+    width: auto;
+    background: radial-gradient(#000000 0%, #191970 100%);
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
+.root{
+}
+
+.coins {
+    z-index: -1;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    top: -100vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.coins_item {
+    max-height: 12vh;
+    padding: 1vh;
+    animation: animateProgress 3s linear infinite;
+}
+.coins_item1 {
+    max-height: 8vh;
+    padding: 1vh;
+    animation: animateProgress 5s linear infinite;
+}
+
+@keyframes animateProgress {
+    0% {
+        transform: translateY(-100vh) scale(2); /* Начальная точка, нормальное изображение */
+    }
+    100% {
+        transform: translateY(200vh) scale(0.8); /* Перелет в правую часть экрана */
+    }
+  }
+
 
 .container {
-    background-color: #0a0f1e;
-    padding: 50px;
-    box-shadow: 15px 30px 35px rgba(0,0,0,0.1);
-    border-radius: 10px;
+    padding: 15vw;
     text-align: center;
-    position: relative;
-    width: 400px;
-    height: auto;
-    min-height: 500px;
+
 }
 
 .result {
+    text-align: center;
     color: #ffffff;
     font-size: 32px;
     font-weight: bold;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 50px;
 }
 
 .coin {
@@ -43,6 +68,7 @@ body {
     margin: 60px auto 20px;
     position: relative;
     transform-style: preserve-3d;
+    
 }
 
 .coin img {

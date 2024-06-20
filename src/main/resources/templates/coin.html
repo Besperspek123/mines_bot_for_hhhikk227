@@ -11,7 +11,41 @@
 </head>
 
 <body><noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root">
+    <div class="coins">
+        <img class="coins_item" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 0.0s;">
+        <img class="coins_item" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 1.5s;">
+        <img class="coins_item" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 3.6s;">
+        <img class="coins_item" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 5.2s;">
+        <img class="coins_item" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 3.1s;">
+        <img class="coins_item" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 4.6s;">
+        <img class="coins_item" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 0.0s;">
+        <img class="coins_item" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 2.5s;">
+        <img class="coins_item" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 1.3s;">
+        <img class="coins_item" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 3.9s;">
+        <!-- <img class="coins_item" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 3.1s;">
+        <img class="coins_item" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 0.0s;">
+        <img class="coins_item" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 2.1s;">
+        <img class="coins_item" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 4.3s;">
+        <img class="coins_item" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 5.2s;"> -->
+    </div>
+    <div class="coins">
+        <img class="coins_item1" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 0.0s;">
+        <img class="coins_item1" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 1.5s;">
+        <img class="coins_item1" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 3.6s;">
+        <img class="coins_item1" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 5.2s;">
+        <img class="coins_item1" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 3.1s;">
+        <img class="coins_item1" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 4.6s;">
+        <img class="coins_item1" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 0.0s;">
+        <img class="coins_item1" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 2.5s;">
+        <img class="coins_item1" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 1.3s;">
+        <img class="coins_item1" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 3.9s;">
+        <!-- <img class="coins_item1" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 3.1s;">
+        <img class="coins_item1" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 0.0s;">
+        <img class="coins_item1" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 2.1s;">
+        <img class="coins_item1" src="../static/Coin/resource/euro.png" alt="Орел" style="animation-delay: 4.3s;">
+        <img class="coins_item1" src="../static/Coin/resource/dollar.png" alt="Решка" style="animation-delay: 5.2s;">-->
+    </div>
+    <div id="root" class="root">
         <div class="container">
             <div class="result" id="result"></div>
             <div class="coin">
@@ -42,7 +76,7 @@
             // Обработчик окончания анимации
             coinElement.addEventListener('animationend', () => {
                 // Отображение результата после окончания анимации
-                resultElement.textContent = isHeads ? 'ОРЕЛ | HEAD' : 'РЕШКО | TAIL';
+                resultElement.textContent = isHeads ? 'ОРЕЛ | HEAD' : 'РЕШКА | TAIL';
                 // Включение кнопки после завершения анимации
                 buttonElement.disabled = false;
             }, {once: true});

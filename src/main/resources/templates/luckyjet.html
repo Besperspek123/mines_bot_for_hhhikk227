@@ -1,45 +1,92 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/LuckyJet/style.css">
-    <title>LUCKYJET</title>
-  <style type="text/css" id="operaUserStyle"></style></head>
-  
-  <body>
-    <div class="background">
-      <div class="container">
-        <img class="pers-animate" src="https://i.postimg.cc/NF4FLHb6/pers.gif" alt="">
-  
-        <div id="error-notification" class="error-notification deactivate" style="transform: translateY(-99px);">
-          <div class="error-background"></div>
-          <img class="icon-error" src="../static/LuckyJet/resource/error-svgrepo-com.svg" alt="error">
-          <p id="text-error" class="text-error">Wait for the time to expire</p>
-          <div id="error-exit" class="error-exit">
-            <img src="../static/LuckyJet/resource/close-svgrepo-com.svg" alt="exit">
-          </div>
-          <div id="error-progress" class="error-progress" style="animation: auto ease 0s 1 normal none running none;"></div>
-        </div>
-  
-        <div class="top-content">
-          <img draggable="false" src="../static/LuckyJet/resource/LuckyJet.png" alt="logo" class="logo-game">
-          <p class="name-bot">@Mines913Bot</p>
-        </div>
-  
-        <div class="print-signal" id="print-signal">3.94x</div>
-        <div class="stop-signal-time deactivate" id="stop-signal-time-block">
-          <p class="stop-timer" id="stop-timer">1<span> seconds</span></p>
-          <div class="stop-progress" id="stop-progress" style="animation: none;"></div>
-        </div>
-  
-        <div class="button-game">
-          <button class="get-signal" id="get-signal">GET SIGNAL</button>
-          <button class="get-signal-two deactivate" id="get-signal-two" style="z-index: -1;">GET SIGNAL</button>
-          <a th:href="@{${gameUrl}}" class="game-here">GAME HERE</a>
-        </div>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/LuckyJet/style.css">
+  <title>LUCKYJET</title>
+  <style type="text/css" id="operaUserStyle"></style>
+</head>
+
+<body>
+
+  <script src="../static/LuckyJet/script.js"></script>
+
+  <div style="position: absolute;">
+    <div class="container">
+      <div class="animate">
+        <!-- <img class="light-animate" src="../static/LuckyJet/resource/Light.webp" alt="plane">
+        <img class="flame-animate" src="../static/LuckyJet/resource/Flame.svg" alt="plane"> -->
+        <img class="pers-animate" src="../static/LuckyJet/resource/Pers ready.svg"plane>
       </div>
+
+      <div class="print-signal-button" id="get-signal" style="z-index: 11;">
+        <span>GET<br>SIGNAL</span>
+      </div>
+      <div class="print-signal" style="position: absolute;">
+        <span id="print-signal"></span>
+      </div>
+      <div class="stop-signal-time deactivate" id="stop-signal-time-block">
+        <p class="stop-timer" id="stop-timer"></p>
+        <div class="stop-progress" id="stop-progress"></div>
+      </div>
+      <div class="top-content">
+        <img draggable="false" src="../static/LuckyJet/resource/LUCKIJET.svg" alt="logo" class="logo-game">
+        <p class="name-bot">@Mines913Bot</p>
+      </div>
+      <div class="button-game">
+        <a th:href="@{${gameUrl}}" class="game-here">GAME HERE</a>
+      </div>
+      <div class="clouds">
+        <img class="cloud" src="../static/LuckyJet/resource/Cloud.png" alt="cloud" style="top: 15vh; animation-delay: 0s;">
+        <img class="cloud" src="../static/LuckyJet/resource/Cloud.png" alt="cloud" style="top: 5vh; animation-delay: 3.0s;">
+        <img class="cloud" src="../static/LuckyJet/resource/Cloud.png" alt="cloud" style="top: 10vh; animation-delay: 6.0s;">
+        <img class="cloudBig" src="../static/LuckyJet/resource/CloudBig.png" alt="cloud" style="top: 8vh; animation-delay: 4.5s;">
+        <img class="cloudBig" src="../static/LuckyJet/resource/CloudBig.png" alt="cloud" style="top: 18vh; animation-delay: 3.5s;">
+        <img class="cloud" src="../static/LuckyJet/resource/Cloud.png" alt="cloud" style="top: 12vh; animation-delay: 2.5s;">
+        <img class="cloud" src="../static/LuckyJet/resource/Cloud.png" alt="cloud" style="top: 6vh; animation-delay: 1.0s;">
+        <img class="cloud" src="../static/LuckyJet/resource/Cloud.png" alt="cloud" style="top: 7vh; animation-delay: 7.5s;">
+        <img class="cloudBig" src="../static/LuckyJet/resource/CloudBig.png" alt="cloud" style="top: 14vh; animation-delay: 5.5s;">
+        <img class="cloudBig" src="../static/LuckyJet/resource/CloudBig.png" alt="cloud" style="top: 1vh; animation-delay: 0.5s;">
+        <img class="cloud" src="../static/LuckyJet/resource/Cloud.png" alt="cloud" style="top: 17vh; animation-delay: 9.0s;">
+        <img class="cloud" src="../static/LuckyJet/resource/Cloud.png" alt="cloud" style="top: 20vh; animation-delay: 12.0s;">
+        <img class="cloudBig" src="../static/LuckyJet/resource/CloudBig.png" alt="cloud" style="top: 22vh; animation-delay: 10.5s;">
+        <img class="cloudBig" src="../static/LuckyJet/resource/CloudBig.png" alt="cloud" style="top: 25vh; animation-delay: 8.5s;">
+        <img class="cloud" src="../static/LuckyJet/resource/Cloud.png" alt="cloud" style="top: 13vh; animation-delay: 11.0s;">
+        <img class="cloud" src="../static/LuckyJet/resource/Cloud.png" alt="cloud" style="top: 6vh; animation-delay: 5.0s;">
+        <img class="cloudBig" src="../static/LuckyJet/resource/CloudBig.png" alt="cloud" style="top: 16vh; animation-delay: 7.0s;">
+        <img class="cloudBig" src="../static/LuckyJet/resource/CloudBig.png" alt="cloud" style="top: 23vh; animation-delay: 13.0s;">
     </div>
-  
-    <script src="../static/LuckyJet/main.js"></script>
-  
-  
-  </body></html>
+    </div>
+  </div>
+
+  <script src="../static/LuckyJet/main.js"></script>
+  <script>
+    // JavaScript to dynamically change z-index at specific points in the animation
+    const plane = document.querySelector('.animate');
+
+    function changeZIndex() {
+      const animation = plane.getAnimations()[0];
+      let animationTime = animation.currentTime % animation.effect.getComputedTiming().duration;
+      let animationDuration = animation.effect.getComputedTiming().duration;
+
+      let progress = (animationTime / animationDuration) * 100;
+      if (progress >= 25 && progress <= 50) {
+        plane.style.zIndex = '1';  // Change to desired z-index value
+      } else if (progress > 50) {
+        plane.style.zIndex = '15';  // Change to desired z-index value
+      } else {
+        plane.style.zIndex = '1';   // Change to desired z-index value
+      }
+
+      requestAnimationFrame(changeZIndex);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      requestAnimationFrame(changeZIndex);  // Initial call to set the correct z-index at start
+    });
+  </script>
+
+</body>
+
+</html>

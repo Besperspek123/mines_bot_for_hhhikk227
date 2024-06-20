@@ -5,12 +5,13 @@
   }
   
   body {
+    margin: 0%;
+    background: rgb(17, 17, 19);
     font-family: "Inter", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(180deg, #521515 0%, #100F0F 50%);
     color: #ffffff;
   }
 
@@ -18,113 +19,47 @@ body, .container {
   overflow: hidden; /* Применяется к телу или основному контейнеру */
 }
 
-  .background {
-    width: 398px;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background: linear-gradient(180deg, #521515 0%, #100F0F 100%);
-  }
+
   
   .pers-animate {
     position: absolute;
-    left: -205px;
-    top: 138px;
+    left: 0px; /* начальная позиция вне экрана */
+    top: 90px;
     z-index: 0;
-    width: 319px;
-    height: 300px;
-    animation: cowmove 15s infinite;    
-  }
+    width: 120px;
+    height: 80px;
+    animation: flySerpentine 10s linear infinite;
+}
 
-  @keyframes cowmove{
-      0% {
-        transform: translateX(0px) rotateY(0deg);
-      }
-      49% {
-        transform: translateX(300px) translateY(-25px) rotateY(0deg);
-      }
-      50% {
-        transform: translateX(300px) translateY(-25px) rotateY(0deg);
-      }
-      100% {
-        transform: translateX(0px) rotateY(0deg);
-      }
+@keyframes flySerpentine {
+  0% {
+      transform: translateX(-50vw) translateY(10vh) scaleX(1); /* Начальная точка, нормальное изображение */
   }
-  
+  20% {
+      transform: translateX(110vw) translateY(10vh) scaleX(1); /* Перелет в правую часть экрана */
+  }
+  40% {
+      transform: translateX(110vw) translateY(35vh) scaleX(-1); /* Разворот и небольшое опускание */
+  }
+  60% {
+      transform: translateX(-100%) translateY(35vh) scaleX(-1); /* Перелет обратно в левую часть */
+  }
+  80% {
+      transform: translateX(-100%) translateY(70vh) scaleX(1); /* Разворот и снова опускание */
+  }
+  100% {
+      transform: translateX(100vw) translateY(70vh) scaleX(1); /* Перелет в правую часть экрана */
+  }
+}
   
   .container {
     position: relative;
-    width: 398px;
+    width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-  }
-  
-  .error-notification {
-    width: 300px;
-    height: 50px;
-    position: relative;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    margin-bottom: -25px;
-    clip-path: inset(0px round 10px 10px);
-    transition: all .2s;
-    transform: translateY(-99px);
-  }
-  
-  .error-background {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 300px;
-    height: 50px;
-    background: #FFEBEB;
-    opacity: .5;
-    border-radius: 10px;
-    margin-bottom: -52px;
-  }
-  
-  .icon-error {
-    z-index: 2;
-  }
-  
-  .error-exit {
-    position: absolute;
-    right: 0;
-    width: 50px;
-    height: 50px;
-    z-index: 2;
-    cursor: pointer;
-    background: #FFC2C2;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-  }
-  
-  .text-error {
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 900;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    padding-left: 10px;
-    padding-right: 45px;
-  }
-  
-  .error-progress {
-    width: 287px;
-    height: 3px;
-    background: linear-gradient(90deg, #E00000 0%, #E00000 100%) left /0% 100% no-repeat #D9D9D9;
-    z-index: 4;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border-radius: 5px;
   }
   
   @keyframes animateErrorProgress {
@@ -134,7 +69,7 @@ body, .container {
   }
   
   .top-content {
-    margin-bottom: 60px;  
+    margin-top: 250px;  
   }
   
   .name-bot {
@@ -145,7 +80,7 @@ body, .container {
   }
   
   .print-signal {
-    margin-bottom: 34px;
+    margin-bottom: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,15 +92,40 @@ body, .container {
     font-size: 40px;
     font-weight: 900;
     transition: all .5s;
-    z-index: 10;
+    z-index: 2;
   }
-  
   .print-signal span {
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
   }
-  
+  .print-signal-button {
+    color: #fff;
+    position: absolute;
+    margin-bottom: 70px;
+    display: flex; /* Добавлено для Flexbox */
+    justify-content: center; /* Центровка по горизонтали */
+    align-items: center; /* Центровка по вертикали */
+    width: 217px;
+    height: 217px;
+    background-color: #151027;
+    border: 5px solid #B41313;
+    border-radius: 50%;
+    font-size: 40px;
+    font-weight: 900;
+    z-index: 10;
+}
+.print-signal-button :hover{
+  scale: 0.9;
+  box-shadow: 0px 1px 2px rgba(255, 0, 0, 0.05);
+  border-radius: 30px;
+}
+
+.print-signal-button span {
+    text-transform: uppercase;
+    font-size: 25px;
+    text-align: center;
+}
   
   .stop-signal-time {
     display: flex;
@@ -173,7 +133,7 @@ body, .container {
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 26px;
+    margin-bottom: 13px;
     width: 230px;
     transition: all .5s;
   }
@@ -198,6 +158,7 @@ body, .container {
   }
   
   .button-game {
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -265,8 +226,8 @@ body, .container {
     border-radius: 30px;
   }
   
-  .get-signal:active, .game-here:active, .get-signal-two:active{
-    transform: scale(95%);
+  .print-signal-button:active, .game-here:active, .get-signal-two:active{
+    transform: scale(90%);
   }
   
   .deactivate {
